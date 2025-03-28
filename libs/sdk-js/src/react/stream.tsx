@@ -784,9 +784,8 @@ export function useStream<
 
       let usableThreadId = threadId;
       if (!usableThreadId) {
-        const thread = await client.threads.create();
-        onThreadId(thread.thread_id);
-        usableThreadId = thread.thread_id;
+        console.error("Thread ID is required but not provided.");
+        return;
       }
 
       const streamMode = unique([
